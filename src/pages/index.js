@@ -17,30 +17,29 @@ class IndexPage extends React.Component {
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.setWrapperRef = this.setWrapperRef.bind(this)
+    this.handleClickOutside = this.handleClickOutside.bind(this)
   }
 
   componentDidMount () {
     this.timeoutId = setTimeout(() => {
-        this.setState({loading: ''});
-    }, 100);
-    document.addEventListener('mousedown', this.handleClickOutside);
+      this.setState({ loading: '' })
+    }, 100)
+    document.addEventListener('mousedown', this.handleClickOutside)
   }
 
   componentWillUnmount () {
     if (this.timeoutId) {
-        clearTimeout(this.timeoutId);
+      clearTimeout(this.timeoutId)
     }
-    document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('mousedown', this.handleClickOutside)
   }
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
+  setWrapperRef (node) {
+    this.wrapperRef = node
   }
 
-  handleOpenArticle(article) {
-
+  handleOpenArticle (article) {
     this.setState({
       isArticleVisible: !this.state.isArticleVisible,
       article
@@ -57,11 +56,9 @@ class IndexPage extends React.Component {
         articleTimeout: !this.state.articleTimeout
       })
     }, 350)
-
   }
 
-  handleCloseArticle() {
-
+  handleCloseArticle () {
     this.setState({
       articleTimeout: !this.state.articleTimeout
     })
@@ -78,22 +75,21 @@ class IndexPage extends React.Component {
         article: ''
       })
     }, 350)
-
   }
 
-  handleClickOutside(event) {
+  handleClickOutside (event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       if (this.state.isArticleVisible) {
-        this.handleCloseArticle();
+        this.handleCloseArticle()
       }
     }
   }
 
-  render() {
+  render () {
     return (
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
-          <div id="wrapper">
+          <div id='wrapper'>
             <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
             <Main
               isArticleVisible={this.state.isArticleVisible}
@@ -105,7 +101,7 @@ class IndexPage extends React.Component {
             />
             <Footer timeout={this.state.timeout} />
           </div>
-          <div id="bg"></div>
+          <div id='bg' />
         </div>
       </Layout>
     )

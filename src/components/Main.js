@@ -5,166 +5,132 @@ import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 
 class Main extends React.Component {
-  render() {
-    let close = (
+  render () {
+    const close = (
       <div
-        className="close"
+        className='close'
         onClick={() => {
           this.props.onCloseArticle()
         }}
-      ></div>
+      />
     )
 
     return (
       <div
         ref={this.props.setWrapperRef}
-        id="main"
+        id='main'
         style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
         <article
-          id="intro"
-          className={`${this.props.article === 'intro' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
+          id='intro'
+          className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''
+            }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Intro</h2>
-          <span className="image main">
-            <img src={pic01} alt="" />
+          <h2 className='major'>Intro</h2>
+          <span className='image main'>
+            <img src={pic01} alt='An Alliance Chieftan flying through the void of space.' />
           </span>
           <p>
-            Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-            aliquam facilisis ante interdum congue. Integer mollis, nisl amet
-            convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-            magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas.
-            By the way, check out my <a href="#work">awesome work</a>.
+            The <strong>Tartan Spartan Freelancer Group</strong> are an
+            Independent mercenary squadron that specialise in securing and
+            strengthening systems through means of force and various
+            manipulation tactics. They are the military wing of their faction
+            and through this they provide armed response and support to their
+            partnerships and allies. The group was formed from a collection of
+            war veterens and bounty hunters. They specialise in combat tactics,
+            in particular bounty hunting, spec ops and wet work contracts.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Etiam tristique
-            libero eu nibh porttitor fermentum. Nullam venenatis erat id
-            vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-            Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae
-            dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in
-            lectus. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. In non lorem sit amet elit
-            placerat maximus. Pellentesque aliquam maximus risus, vel sed
-            vehicula.
+            We accept CMDR's from all backgrounds and support activities from
+            bountry hunting, exploration, hunting for Raxxla, trading, and
+            beyond.
           </p>
           {close}
         </article>
 
         <article
-          id="work"
-          className={`${this.props.article === 'work' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
+          id='crew'
+          className={`${this.props.article === 'crew' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''
+            }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Work</h2>
-          <span className="image main">
-            <img src={pic02} alt="" />
+          <h2 className='major'>The Crew</h2>
+          {/*
+          <span className='image main'>
+            <img src={pic02} alt='Placeholder' />
           </span>
+          */}
           <p>
-            Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu,
-            at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent
-            urna nisi, fringila lorem et vehicula lacinia quam. Integer
-            sollicitudin mauris nec lorem luctus ultrices.
+            TSFG was founded by a trio of Scots from the void.
           </p>
-          <p>
-            Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus pharetra.
-            Pellentesque condimentum sem. In efficitur ligula tate urna.
-            Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor.
-            Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat
-            tempus.
-          </p>
-          {close}
-        </article>
-
-        <article
-          id="about"
-          className={`${this.props.article === 'about' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-          style={{ display: 'none' }}
-        >
-          <h2 className="major">About</h2>
-          <span className="image main">
-            <img src={pic03} alt="" />
-          </span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-            erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-            lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
-            Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
-            Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit
-            amet.
-          </p>
-          {close}
-        </article>
-
-        <article
-          id="contact"
-          className={`${this.props.article === 'contact' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-          style={{ display: 'none' }}
-        >
-          <h2 className="major">Contact</h2>
-          <form method="post" action="#">
-            <div className="field half first">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-            <div className="field half">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
-            </div>
-            <ul className="actions">
-              <li>
-                <input type="submit" value="Send Message" className="special" />
-              </li>
-              <li>
-                <input type="reset" value="Reset" />
-              </li>
-            </ul>
-          </form>
-          <ul className="icons">
-            <li>
-              <a
-                href="https://twitter.com/HuntaroSan"
-                className="icon fa-twitter"
-              >
-                <span className="label">Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://codebushi.com" className="icon fa-facebook">
-                <span className="label">Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://codebushi.com" className="icon fa-instagram">
-                <span className="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/codebushi/gatsby-starter-dimension"
-                className="icon fa-github"
-              >
-                <span className="label">GitHub</span>
-              </a>
-            </li>
+          <ul>
+            <li>Scootzy - Veteran of the Thargoid War</li>
+            <li>Ceejay -  Deep Space Anarchist</li>
+            <li>Nitram - Expert in Biowaste Trade and Counter Piracy</li>
           </ul>
+          <p>
+            We have a squadron of ~90 Pilots covering EU/NA
+            We're looking for players of all levels, backgrounds and play styles.<br /><br />
+
+            We offer:
+            <ul>
+              <li>Trade</li>
+              <li>Combat</li>
+              <li>Exploration</li>
+              <li>Group Grinds (Materials, Missions etc)</li>
+            </ul>
+            We have 10 carriers that take regular trips out to the black and support the squadron in its activities
+            We have our own minor faction, so if you want to help expand and conquer, great. If not. Thats fine. Our whole ethos of "Freelancer" is you are free to do as you wish, but do it with some company and camaraderie
+          </p>
+
+          {close}
+        </article>
+
+        <article
+          id='intel'
+          className={`${this.props.article === 'intel' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''
+            }`}
+          style={{ display: 'none' }}
+        >
+          <h2 className='major'>Intel</h2>
+          <p style={{ textAlign: 'center' }}>
+            <strong>Intel and guides coming soon.</strong>
+          </p>
+          {close}
+        </article>
+
+        <article
+          id='join'
+          className={`${this.props.article === 'join' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''
+            }`}
+          style={{ display: 'none' }}
+        >
+          <h2 className='major'>Join Us</h2>
+          <p>Welcome to the <strong>Tartan Spartan Freelancer Group</strong> for Elite Dangerous on PS4/5.</p>
+          <h3>Rules</h3>
+          <p>
+            Although we are a laid back squadron. There are ground rules which each member is expected to comply with.
+          </p>
+
+          <ol>
+            <li>Do not break PlayStation network/Frontier Developments/Discord EULA,Rules or terms and conditions.</li>
+            <li>Do not harass bully or intimidate other members.</li>
+            <li>No racist, Sexist, Sectarian, Homophobic, Islamophobic, Antisemitism or Xenophobic content (exceptions made for remarks about Thargoids).</li>
+            <li>Don't be a dick</li>
+            <li>Vulgar language is fine within reason</li>
+            <li>Admins say is final</li>
+            <li>Do not post NSFW content on the discord.</li>
+            <li>Do not act against the minor faction: Tartan Spartan Freelancer Group (killing wanted NPCs is allowed)</li>
+            <li>Do not spam the discord</li>
+            <li>Don't be a Thargoid</li>
+            <li>No combat logging</li>
+          </ol>
+          <h3>Discord</h3>
+          <p>The first thing you'll want to do is <a href="https://discord.com/invite/28TtaMeR8j">sign up for our discord</a> where all of our primary communications happens.</p>
+          <h4>Enlist</h4>
+          <p>To join the Squadron, you apply in-game. Select the <strong>Squadron Tile > Browse Squadrons > Search "Tartan" and apply</strong>. We require you join up on <a href="https://inara.cz/squadron/9291/">inara.cz</a> as well</p>
+          <p>Once you have completed the above, notify a @SquadronCommander in discord and you'll be granted access to all our squadron has to offer.</p>
           {close}
         </article>
       </div>
@@ -178,7 +144,7 @@ Main.propTypes = {
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
-  setWrapperRef: PropTypes.func.isRequired,
+  setWrapperRef: PropTypes.func.isRequired
 }
 
 export default Main
